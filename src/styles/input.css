@@ -945,7 +945,7 @@
 
   .panel-claw {
     position: absolute;
-    top: 1rem;
+    top: 1.18rem;
     right: 0;
     z-index: 1;
     display: inline-flex;
