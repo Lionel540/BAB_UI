@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BAB_UI Hex Grid Example</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../public/assets/styles.css">
+  </head>
+  <body class="shell">
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div>
+          <p class="text-xs uppercase tracking-[0.35em] text-bab-muted">BAB_UI</p>
+          <p class="mt-1 font-display text-lg text-white">Hex Interaction Grid</p>
+        </div>
+        <nav class="hidden items-center gap-8 md:flex">
+          <a class="nav-link" href="dashboard.html">Dashboard</a>
+          <a class="nav-link" href="#" aria-current="page">Hex Field</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="relative section-frame py-14 md:py-20">
+      <section class="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+        <div class="panel-card">
+          <p class="eyebrow">Interactive Surface</p>
+          <h1 class="mt-6 font-display text-4xl text-white">Precision hex grid for controlled state toggles.</h1>
+          <p class="mt-6 text-base leading-7 text-bab-muted">
+            Each cell responds with a soft edge lift and restrained orange glow. Click any cell to arm it, while one
+            cell maintains the pulsing active anchor state for orientation.
+          </p>
+          <div class="mt-10 grid gap-4 sm:grid-cols-2">
+            <div class="rounded-2xl border border-white/8 bg-white/4 p-4">
+              <p class="text-xs uppercase tracking-[0.2em] text-bab-muted">Hover Language</p>
+              <p class="mt-3 font-display text-2xl text-white">Soft Glow</p>
+            </div>
+            <div class="rounded-2xl border border-white/8 bg-white/4 p-4">
+              <p class="text-xs uppercase tracking-[0.2em] text-bab-muted">Click State</p>
+              <p class="mt-3 font-display text-2xl text-bab-primary">Toggled</p>
+            </div>
+          </div>
+        </div>
+
+        <section class="hex-stage">
+          <div class="relative z-10 flex flex-wrap items-center justify-between gap-4">
+            <div>
+              <p class="stat-label">Control Matrix</p>
+              <h2 class="mt-4 font-display text-3xl text-white">Tactile digital geometry</h2>
+            </div>
+            <div class="flex gap-3">
+              <button class="btn-outline" id="reset-grid" type="button"><span class="btn-accent"><span class="btn-accent-mid"></span></span><span class="btn-label">Reset Field</span></button>
+            </div>
+          </div>
+
+          <div class="relative z-10 mt-12 space-y-3">
+            <div class="hex-grid">
+              <div class="hex-cell" data-cell><button type="button">A1</button></div>
+              <div class="hex-cell" data-cell><button type="button">A2</button></div>
+              <div class="hex-cell is-active is-pulse" data-cell><button type="button">A3</button></div>
+              <div class="hex-cell" data-cell><button type="button">A4</button></div>
+            </div>
+            <div class="hex-grid hex-row-offset">
+              <div class="hex-cell" data-cell><button type="button">B1</button></div>
+              <div class="hex-cell" data-cell><button type="button">B2</button></div>
+              <div class="hex-cell" data-cell><button type="button">B3</button></div>
+              <div class="hex-cell" data-cell><button type="button">B4</button></div>
+            </div>
+            <div class="hex-grid">
+              <div class="hex-cell" data-cell><button type="button">C1</button></div>
+              <div class="hex-cell" data-cell><button type="button">C2</button></div>
+              <div class="hex-cell" data-cell><button type="button">C3</button></div>
+              <div class="hex-cell" data-cell><button type="button">C4</button></div>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script>
+      (() => {
+        const cells = [...document.querySelectorAll("[data-cell]")];
+        const reset = document.getElementById("reset-grid");
+        const defaultPulseLabel = "A3";
+
+        function syncPulse() {
+          const activeCells = cells.filter((cell) => cell.classList.contains("is-active"));
+          cells.forEach((cell) => cell.classList.remove("is-pulse"));
+
+          const pulseTarget =
+            activeCells.find((cell) => cell.textContent.trim() === defaultPulseLabel) ||
+            activeCells[0];
+
+          if (pulseTarget) {
+            pulseTarget.classList.add("is-pulse");
+          }
+        }
+
+        cells.forEach((cell) => {
+          cell.addEventListener("click", () => {
+            cell.classList.toggle("is-active");
+            syncPulse();
+          });
+        });
+
+        reset.addEventListener("click", () => {
+          cells.forEach((cell) => {
+            const label = cell.textContent.trim();
+            cell.classList.toggle("is-active", label === defaultPulseLabel);
+          });
+          syncPulse();
+        });
+
+        syncPulse();
+      })();
+    </script>
+  </body>
+</html>

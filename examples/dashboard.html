@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BAB_UI Dashboard Example</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../public/assets/styles.css">
+  </head>
+  <body class="shell">
+    <div class="absolute inset-0 bg-hex-fade opacity-60"></div>
+
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div>
+          <p class="text-xs uppercase tracking-[0.35em] text-bab-muted">BAB_UI</p>
+          <p class="mt-1 font-display text-lg text-white">Telemetry Dashboard</p>
+        </div>
+        <nav class="hidden items-center gap-8 md:flex">
+          <a class="nav-link" href="#">Overview</a>
+          <a class="nav-link" href="#" aria-current="page">Dashboard</a>
+          <a class="nav-link" href="hex.html">Hex Field</a>
+          <a class="nav-link" href="#">Command</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="relative">
+      <section class="section-frame pt-14 md:pt-20">
+        <p class="eyebrow">Precision Interface</p>
+        <div class="mt-6 flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <h1 class="hero-title">Premium dark UI built for controlled performance surfaces.</h1>
+            <p class="hero-copy mt-6">
+              BAB_UI translates carbon-inspired restraint into a system of matte panels, engineered spacing,
+              and selective orange highlights that guide attention without noise.
+            </p>
+          </div>
+          <div class="flex flex-col gap-4 sm:flex-row sm:flex-wrap">
+            <button class="btn-outline btn-combo-mark" type="button"><span class="btn-accent"><span class="btn-accent-mid"></span></span><span class="btn-combo-content"><span class="btn-symbol btn-symbol-play" aria-hidden="true"></span><span class="btn-label">Open Runbook</span></span></button>
+            <button class="btn-solid btn-combo-mark" type="button"><span class="btn-accent"><span class="btn-accent-mid"></span></span><span class="btn-combo-content"><span class="btn-symbol btn-symbol-play" aria-hidden="true"></span><span class="btn-label">Arm Sequence</span></span></button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-frame pt-6">
+        <div class="kpi-surface">
+          <div class="grid-shell">
+            <div class="panel-card panel-embedded panel-signature-host panel-claw-host lg:col-span-4">
+              <p class="stat-label">Response Window</p>
+              <h2 class="mt-5 stat-value">142 ms</h2>
+              <p class="mt-4 text-sm leading-6 text-bab-muted">
+                Stable operator feedback under dense dashboard interactions and layered data refresh cycles.
+              </p>
+              <div class="mt-6">
+                <span class="metric-chip">Nominal Load</span>
+              </div>
+              <span class="panel-claw panel-claw-fine-bold-fine" aria-hidden="true"><i></i><i></i><i></i></span>
+            </div>
+
+            <div class="panel-card panel-embedded panel-signature-host lg:col-span-4">
+              <p class="stat-label">Thermal Margin</p>
+              <h2 class="mt-5 stat-value">71%</h2>
+              <p class="mt-4 text-sm leading-6 text-bab-muted">
+                Cooling reserve remains comfortably within target operating envelope during sustained usage.
+              </p>
+              <div class="mt-6">
+                <span class="metric-chip">Within Threshold</span>
+              </div>
+              <span class="panel-signature panel-signature-bold-medium-fine" aria-hidden="true"><i></i><i></i><i></i></span>
+            </div>
+
+            <div class="panel-card panel-embedded panel-signature-host panel-title-claw-host lg:col-span-4">
+              <p class="stat-label panel-title-claw-label">Signal Quality</p>
+              <h2 class="mt-5 stat-value">99.2%</h2>
+              <p class="mt-4 text-sm leading-6 text-bab-muted">
+                Clean routing across control paths with low variance during mode changes and user input bursts.
+              </p>
+              <div class="mt-6">
+                <span class="metric-chip">Route Locked</span>
+              </div>
+              <span class="panel-title-claw panel-title-claw-fine-medium-bold" aria-hidden="true"><i></i><i></i><i></i></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-frame pt-4 pb-16">
+        <div class="kpi-surface">
+          <div class="grid-shell lg:grid-cols-[1.15fr_0.85fr]">
+            <article class="panel-card panel-embedded sheen-corner-left sheen-carbon stripe-fine-bold-fine">
+              <div class="flex flex-wrap items-start justify-between gap-4">
+                <div>
+                  <p class="stat-label">Session Overview</p>
+                  <h2 class="mt-4 font-display text-3xl text-white">Operational balance across the control layer</h2>
+                </div>
+                <button class="btn-outline btn-combo-mark" type="button"><span class="btn-accent"><span class="btn-accent-mid"></span></span><span class="btn-combo-content"><span class="btn-symbol btn-symbol-play" aria-hidden="true"></span><span class="btn-label">Adjust Bias</span></span></button>
+              </div>
+              <div class="mt-6 grid gap-4 md:grid-cols-2">
+                <div class="space-y-3">
+                  <p class="text-[0.68rem] uppercase tracking-[0.24em] text-bab-muted">Action Icon</p>
+                  <button class="btn-outline btn-inline-mark w-full" type="button"><span class="btn-symbol btn-symbol-play" aria-hidden="true"></span><span class="btn-label">Run Preview</span></button>
+                </div>
+                <div class="space-y-3">
+                  <p class="text-[0.68rem] uppercase tracking-[0.24em] text-bab-muted">BAB Signature</p>
+                  <button class="btn-outline btn-combo-mark w-full" type="button"><span class="btn-accent"><span class="btn-accent-mid"></span></span><span class="btn-combo-content"><span class="btn-symbol btn-symbol-play" aria-hidden="true"></span><span class="btn-label">Run Preview</span></span></button>
+                </div>
+              </div>
+              <div class="mt-8 grid gap-4 sm:grid-cols-3">
+                <div class="data-pod sheen-corner-right sheen-carbon stripe-fine-bold-fine">
+                  <p class="text-xs uppercase tracking-[0.2em] text-bab-muted">Interface Load</p>
+                  <p class="mt-3 font-display text-2xl text-white">58%</p>
+                </div>
+                <div class="data-pod sheen-corner-right sheen-carbon stripe-bold-medium-fine">
+                  <p class="text-xs uppercase tracking-[0.2em] text-bab-muted">Cycles Ready</p>
+                  <p class="mt-3 font-display text-2xl text-white">16</p>
+                </div>
+                <div class="data-pod is-accent sheen-corner-right sheen-carbon stripe-fine-medium-bold">
+                  <p class="text-xs uppercase tracking-[0.2em] text-bab-muted">Status</p>
+                  <p class="mt-3 font-display text-2xl text-bab-primary">Primed</p>
+                </div>
+              </div>
+            </article>
+
+            <aside class="panel-card panel-embedded sheen-corner-right sheen-carbon stripe-fine-medium-bold">
+              <p class="stat-label">Navigation Pattern</p>
+              <h2 class="mt-4 font-display text-3xl text-white">Minimal signal hierarchy</h2>
+              <p class="mt-4 text-sm leading-6 text-bab-muted">
+                The system keeps emphasis narrow. Orange enters only where action, status, or operator confirmation matters.
+              </p>
+              <div class="mt-8 flex flex-wrap gap-3">
+                <span class="metric-chip">Dark First</span>
+                <span class="metric-chip">Tight Borders</span>
+                <span class="metric-chip is-accent">Measured Glow</span>
+              </div>
+              <div class="mt-8 flex flex-col gap-4">
+                <button class="btn-toggle" type="button" aria-pressed="false" data-toggle-control>
+                  <span class="btn-toggle-label">Telemetry Feed</span>
+                  <span class="btn-toggle-state" aria-hidden="true"></span>
+                </button>
+                <button class="btn-toggle" type="button" aria-pressed="true" data-toggle-control>
+                  <span class="btn-toggle-label">Thermal Shield</span>
+                  <span class="btn-toggle-state" aria-hidden="true"></span>
+                </button>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script>
+      document.querySelectorAll("[data-toggle-control]").forEach((toggle) => {
+        toggle.addEventListener("click", () => {
+          const isPressed = toggle.getAttribute("aria-pressed") === "true";
+          toggle.setAttribute("aria-pressed", String(!isPressed));
+        });
+
+        toggle.addEventListener("keydown", (event) => {
+          if (event.key !== "Enter" && event.key !== " ") {
+            return;
+          }
+
+          event.preventDefault();
+          toggle.click();
+        });
+      });
+    </script>
+  </body>
+</html>

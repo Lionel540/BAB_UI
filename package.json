@@ -1,0 +1,14 @@
+{
+  "name": "bab_ui",
+  "version": "1.0.0",
+  "private": true,
+  "description": "BAB_UI premium dark design system with Tailwind CSS and vanilla JavaScript.",
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/styles/input.css -o ./public/assets/styles.css --minify",
+    "watch:css": "tailwindcss -i ./src/styles/input.css -o ./public/assets/styles.css --watch",
+    "preview": "node ./scripts/preview-server.js"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}
