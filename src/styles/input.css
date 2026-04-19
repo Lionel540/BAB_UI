@@ -201,6 +201,21 @@
 
   .btn-inline-mark .btn-label {
     flex: none;
+    color: transparent;
+    background-image: linear-gradient(90deg, rgba(240, 233, 222, 0.95), rgba(236, 228, 216, 0.94));
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-shadow: 0 0 0 rgba(255, 168, 76, 0);
+    transition: background-image 280ms ease-out, text-shadow 280ms ease-out, filter 280ms ease-out, opacity 280ms ease-out;
+  }
+
+  .btn-combo-mark .btn-label {
+    color: transparent;
+    background-image: linear-gradient(90deg, rgba(238, 232, 222, 0.95), rgba(232, 226, 214, 0.94));
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-shadow: 0 0 0 rgba(255, 168, 76, 0);
+    transition: background-image 260ms ease-out, text-shadow 260ms ease-out, filter 260ms ease-out, opacity 260ms ease-out;
   }
 
   .btn-inline-mark:hover .btn-label,
@@ -233,11 +248,11 @@
     border-left-width: 0;
     width: 0.72rem;
     height: 0.76rem;
-    background: rgba(229, 231, 235, 0.92);
+    background: linear-gradient(180deg, rgba(240, 233, 222, 0.95), rgba(232, 224, 212, 0.94));
     clip-path: polygon(0 0, 100% 50%, 0 100%);
     filter: none;
     transform: translateX(0.04rem);
-    transition: background 220ms ease, filter 220ms ease;
+    transition: background 280ms ease-out, filter 280ms ease-out, transform 280ms ease-out, opacity 280ms ease-out;
   }
 
   .btn-inline-mark .btn-accent {
@@ -270,6 +285,7 @@
     justify-content: flex-start;
     gap: 0.18rem;
     margin-right: 0.36rem;
+    filter: saturate(0.92) brightness(0.9);
     transition: transform 220ms ease, filter 220ms ease, opacity 220ms ease;
   }
 
@@ -280,27 +296,27 @@
     display: block;
     height: 100%;
     border-radius: 999px;
-    background: linear-gradient(180deg, rgba(255, 204, 96, 0.96), rgba(255, 158, 58, 0.9) 46%, rgba(255, 106, 0, 0.84));
+    background: linear-gradient(180deg, rgba(255, 188, 92, 0.62), rgba(255, 138, 36, 0.76) 46%, rgba(148, 58, 0, 0.92));
     transform: translateY(0);
-    transition: transform 220ms ease, box-shadow 220ms ease, opacity 220ms ease;
+    transition: transform 220ms ease, box-shadow 220ms ease, opacity 220ms ease, background 220ms ease, filter 220ms ease;
   }
 
   .btn-accent::before {
     width: 0.1rem;
-    opacity: 0.86;
-    box-shadow: 0 0 7px rgba(255, 106, 0, 0.1);
+    opacity: 0.76;
+    box-shadow: 0 0 6px rgba(255, 106, 0, 0.08);
   }
 
   .btn-accent .btn-accent-mid {
     width: 0.18rem;
-    opacity: 0.94;
-    box-shadow: 0 0 8px rgba(255, 106, 0, 0.14);
+    opacity: 0.84;
+    box-shadow: 0 0 7px rgba(255, 106, 0, 0.1);
   }
 
   .btn-accent::after {
     width: 0.28rem;
-    opacity: 0.98;
-    box-shadow: 0 0 10px rgba(255, 106, 0, 0.16);
+    opacity: 0.88;
+    box-shadow: 0 0 8px rgba(255, 106, 0, 0.12);
   }
 
   .sheen-left {
@@ -417,11 +433,19 @@
   .btn-outline:hover .btn-accent::before,
   .btn-outline:hover .btn-accent::after,
   .btn-outline:hover .btn-accent .btn-accent-mid {
+    background: linear-gradient(180deg, rgba(255, 204, 96, 0.96), rgba(255, 158, 58, 0.9) 46%, rgba(255, 106, 0, 0.84));
     opacity: 0.96;
-    transform: translateY(0);
+    transform: translateY(-0.01rem);
+    filter: saturate(1.03) brightness(1.02);
     box-shadow:
-      0 0 10px rgba(255, 168, 76, 0.18),
-      0 0 20px rgba(255, 106, 0, 0.1);
+      0 0 8px rgba(255, 210, 122, 0.16),
+      0 0 14px rgba(255, 168, 76, 0.14),
+      0 0 20px rgba(255, 106, 0, 0.08);
+  }
+
+  .btn-solid:hover .btn-accent,
+  .btn-outline:hover .btn-accent {
+    filter: saturate(1.02) brightness(1.04);
   }
 
   .btn-inline-mark:hover .btn-symbol-play::after {
@@ -440,6 +464,36 @@
     gap: 0.14rem;
     margin-right: 0;
     flex: none;
+  }
+
+  .btn-combo-mark-subtle .btn-accent {
+    filter: saturate(0.97) brightness(0.95);
+  }
+
+  .btn-combo-mark-subtle .btn-accent::before,
+  .btn-combo-mark-subtle .btn-accent::after,
+  .btn-combo-mark-subtle .btn-accent .btn-accent-mid {
+    background: linear-gradient(180deg, rgba(255, 190, 94, 0.68), rgba(255, 142, 38, 0.78) 46%, rgba(154, 60, 0, 0.9));
+    box-shadow:
+      0 0 5px rgba(255, 168, 76, 0.09),
+      0 0 11px rgba(255, 106, 0, 0.06);
+  }
+
+  .btn-combo-mark-subtle:hover .btn-accent {
+    filter: saturate(1.04) brightness(1.06);
+  }
+
+  .btn-combo-mark-subtle:hover .btn-accent::before,
+  .btn-combo-mark-subtle:hover .btn-accent::after,
+  .btn-combo-mark-subtle:hover .btn-accent .btn-accent-mid {
+    background: linear-gradient(180deg, rgba(255, 206, 108, 0.9), rgba(255, 158, 54, 0.88) 46%, rgba(184, 74, 0, 0.9));
+    opacity: 0.98;
+    transform: translateY(-0.008rem);
+    filter: saturate(1.04) brightness(1.03);
+    box-shadow:
+      0 0 7px rgba(255, 210, 122, 0.16),
+      0 0 14px rgba(255, 168, 76, 0.13),
+      0 0 20px rgba(255, 106, 0, 0.08);
   }
 
   .btn-combo-mark .btn-accent::before {
@@ -483,16 +537,46 @@
     border-left-width: 0;
     width: 0.72rem;
     height: 0.76rem;
-    background: rgba(229, 231, 235, 0.92);
+    background: linear-gradient(180deg, rgba(238, 232, 222, 0.95), rgba(232, 226, 214, 0.94));
     clip-path: polygon(0 0, 100% 50%, 0 100%);
     filter: none;
     transform: translateX(0.04rem);
-    transition: background 220ms ease, filter 220ms ease;
+    transition: background 260ms ease-out, filter 260ms ease-out, transform 260ms ease-out, opacity 260ms ease-out;
   }
 
   .btn-combo-mark:hover .btn-symbol-play::after {
     background: linear-gradient(180deg, rgba(255, 204, 96, 0.96), rgba(255, 158, 58, 0.9) 46%, rgba(255, 106, 0, 0.84));
     filter: drop-shadow(0 0 10px rgba(255, 158, 58, 0.2));
+  }
+
+  .btn-combo-mark-subtle .btn-label {
+    color: transparent;
+    background-image: linear-gradient(90deg, rgba(240, 233, 222, 0.95), rgba(236, 228, 216, 0.94));
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-shadow: 0 0 0 rgba(255, 168, 76, 0);
+    transition: background-image 280ms ease-out, text-shadow 280ms ease-out, filter 280ms ease-out, opacity 280ms ease-out;
+  }
+
+  .btn-combo-mark-subtle:hover .btn-label {
+    color: transparent;
+    background-image: linear-gradient(90deg, rgba(255, 214, 132, 0.92), rgba(255, 170, 72, 0.88) 52%, rgba(255, 122, 28, 0.8));
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-shadow:
+      0 0 6px rgba(255, 168, 76, 0.12),
+      0 0 12px rgba(255, 106, 0, 0.06);
+  }
+
+  .btn-combo-mark-subtle .btn-symbol-play::after {
+    background: linear-gradient(180deg, rgba(240, 233, 222, 0.95), rgba(232, 224, 212, 0.94));
+    transition: background 280ms ease-out, filter 280ms ease-out, transform 280ms ease-out, opacity 280ms ease-out;
+  }
+
+  .btn-combo-mark-subtle:hover .btn-symbol-play::after {
+    background: linear-gradient(180deg, rgba(255, 214, 132, 0.92), rgba(255, 170, 72, 0.88) 52%, rgba(255, 122, 28, 0.8));
+    filter: drop-shadow(0 0 7px rgba(255, 168, 76, 0.14));
+    transform: translateX(0.04rem) translateY(-0.012rem);
   }
 
   .btn-solid {
@@ -573,7 +657,7 @@
     justify-content: space-between;
     border: 1px solid transparent;
     background:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.012), rgba(255, 255, 255, 0.003)),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.014), rgba(255, 255, 255, 0.004)),
       rgba(15, 17, 21, 0.28);
     box-shadow:
       inset 14px 14px 22px rgba(0, 0, 0, 0.18),
@@ -582,6 +666,12 @@
       inset -1px -1px 0 rgba(0, 0, 0, 0.3),
       10px 10px 18px rgba(0, 0, 0, 0.14),
       -8px -8px 16px rgba(255, 255, 255, 0.008);
+    transition:
+      color 280ms ease-out,
+      border-color 280ms ease-out,
+      background 280ms ease-out,
+      box-shadow 280ms ease-out,
+      transform 220ms ease;
   }
 
   .btn-toggle::before {
@@ -597,8 +687,11 @@
   }
 
   .btn-toggle:hover {
-    color: rgba(229, 231, 235, 0.92);
-    border-color: rgba(255, 255, 255, 0.04);
+    color: rgba(238, 232, 222, 0.94);
+    border-color: rgba(255, 196, 132, 0.08);
+    background:
+      linear-gradient(180deg, rgba(255, 196, 132, 0.024), rgba(255, 255, 255, 0.004)),
+      rgba(15, 17, 21, 0.28);
     box-shadow:
       inset 14px 14px 22px rgba(0, 0, 0, 0.18),
       inset -10px -10px 18px rgba(255, 255, 255, 0.012),
@@ -625,7 +718,12 @@
   }
 
   .btn-toggle-label {
-    color: rgba(229, 231, 235, 0.88);
+    color: transparent;
+    background-image: linear-gradient(90deg, rgba(238, 232, 222, 0.94), rgba(230, 224, 214, 0.92));
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-shadow: 0 0 0 rgba(255, 168, 76, 0);
+    transition: background-image 280ms ease-out, text-shadow 280ms ease-out, opacity 280ms ease-out;
   }
 
   .btn-toggle-state {
@@ -634,8 +732,13 @@
     height: 2.35rem;
     border-radius: 999px;
     flex: none;
-    background: transparent;
-    box-shadow: none;
+    background:
+      linear-gradient(180deg, rgba(255, 196, 132, 0.03), rgba(255, 255, 255, 0.01)),
+      rgba(10, 11, 14, 0.14);
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 255, 255, 0.03),
+      inset 0 0 0 1px rgba(255, 196, 132, 0.02);
+    transition: background 280ms ease-out, box-shadow 280ms ease-out, filter 280ms ease-out;
   }
 
   .btn-toggle-state::before {
@@ -652,12 +755,14 @@
     box-shadow:
       inset 8px 8px 12px rgba(255, 255, 255, 0.012),
       inset -10px -10px 14px rgba(0, 0, 0, 0.24),
+      0 0 0 1px rgba(255, 196, 132, 0.08),
       8px 8px 16px rgba(0, 0, 0, 0.2),
       -4px -4px 10px rgba(255, 255, 255, 0.008);
     transition:
-      transform 260ms ease,
-      box-shadow 260ms ease,
-      background 260ms ease;
+      transform 280ms ease-out,
+      box-shadow 280ms ease-out,
+      background 280ms ease-out,
+      filter 280ms ease-out;
   }
 
   .btn-toggle-state::after {
@@ -670,30 +775,38 @@
   }
 
   .btn-toggle[aria-pressed="true"] {
-    color: rgba(229, 231, 235, 0.96);
-    border-color: rgba(255, 106, 0, 0.08);
+    color: rgba(238, 232, 222, 0.96);
+    border-color: transparent;
+    background:
+      linear-gradient(180deg, rgba(255, 180, 104, 0.042), rgba(255, 255, 255, 0.005)),
+      rgba(15, 17, 21, 0.28);
     box-shadow:
       inset 14px 14px 22px rgba(0, 0, 0, 0.22),
       inset -10px -10px 18px rgba(255, 255, 255, 0.014),
-      inset 1px 1px 0 rgba(255, 173, 112, 0.03),
+      inset 1px 1px 0 rgba(255, 255, 255, 0.014),
       inset -1px -1px 0 rgba(0, 0, 0, 0.28),
       12px 12px 22px rgba(0, 0, 0, 0.18),
       -10px -10px 18px rgba(255, 255, 255, 0.01);
   }
 
   .btn-toggle[aria-pressed="true"] .btn-toggle-state {
-    box-shadow: none;
+    background:
+      linear-gradient(180deg, rgba(255, 196, 132, 0.08), rgba(255, 255, 255, 0.01)),
+      rgba(10, 11, 14, 0.16);
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 196, 132, 0.08),
+      inset 0 0 18px rgba(255, 106, 0, 0.05);
   }
 
   .btn-toggle[aria-pressed="true"] .btn-toggle-state::before {
     transform: translateX(3.3rem);
     background:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.028), rgba(255, 255, 255, 0.008)),
+      linear-gradient(180deg, rgba(255, 214, 132, 0.16), rgba(255, 255, 255, 0.012)),
       #111317;
+    filter: saturate(1.03) brightness(1.03);
     box-shadow:
       inset 8px 8px 12px rgba(255, 255, 255, 0.012),
       inset -10px -10px 14px rgba(0, 0, 0, 0.24),
-      0 0 0 1px rgba(255, 128, 32, 0.34),
       0 0 18px rgba(255, 106, 0, 0.34),
       0 0 8px rgba(255, 151, 84, 0.18),
       8px 8px 16px rgba(0, 0, 0, 0.2);
@@ -707,9 +820,17 @@
     box-shadow:
       inset 8px 8px 12px rgba(255, 255, 255, 0.012),
       inset -10px -10px 14px rgba(0, 0, 0, 0.24),
-      0 0 0 1px rgba(255, 106, 0, 0.18),
+      0 0 0 1px rgba(255, 196, 132, 0.12),
       8px 8px 16px rgba(0, 0, 0, 0.2),
       -4px -4px 10px rgba(255, 255, 255, 0.008);
+  }
+
+  .btn-toggle:hover .btn-toggle-label,
+  .btn-toggle[aria-pressed="true"] .btn-toggle-label {
+    background-image: linear-gradient(90deg, rgba(255, 214, 132, 0.92), rgba(255, 170, 72, 0.88) 52%, rgba(255, 122, 28, 0.8));
+    text-shadow:
+      0 0 6px rgba(255, 168, 76, 0.12),
+      0 0 12px rgba(255, 106, 0, 0.06);
   }
 
   .panel-card {
