@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BAB_UI Demo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="public/assets/styles.css">
+  </head>
+  <body class="shell">
+    <div class="absolute inset-0 bg-hex-fade opacity-60"></div>
+
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div>
+          <p class="text-xs uppercase tracking-[0.35em] text-bab-muted">BAB_UI</p>
+          <p class="mt-1 font-display text-lg text-white">Design System Demo</p>
+        </div>
+        <nav class="hidden items-center gap-8 md:flex">
+          <a class="nav-link" href="#" aria-current="page">Overview</a>
+          <a class="nav-link" href="examples/dashboard.html">Dashboard</a>
+          <a class="nav-link" href="examples/hex.html">Hex Field</a>
+          <a class="nav-link" href="docs/design-system.md">Docs</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="relative">
+      <section class="section-frame pt-14 md:pt-20">
+        <p class="eyebrow">GitHub Pages Demo</p>
+        <div class="mt-6 grid gap-10 lg:grid-cols-[1.25fr_0.75fr] lg:items-end">
+          <div>
+            <h1 class="hero-title">Controlled performance UI, published as a static demo.</h1>
+            <p class="hero-copy mt-6">
+              BAB_UI is a dark premium system for dashboard surfaces, command controls, and carbon-inspired
+              instrumentation. This entry page is meant for GitHub Pages and links directly to the live example views.
+            </p>
+          </div>
+          <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+            <a class="btn-outline btn-combo-mark" href="examples/dashboard.html">
+              <span class="btn-accent"><span class="btn-accent-mid"></span></span>
+              <span class="btn-combo-content">
+                <span class="btn-symbol btn-symbol-play" aria-hidden="true"></span>
+                <span class="btn-label">Open Dashboard</span>
+              </span>
+            </a>
+            <a class="btn-solid btn-combo-mark" href="examples/hex.html">
+              <span class="btn-accent"><span class="btn-accent-mid"></span></span>
+              <span class="btn-combo-content">
+                <span class="btn-symbol btn-symbol-play" aria-hidden="true"></span>
+                <span class="btn-label">Open Hex Field</span>
+              </span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-frame pt-6 pb-16">
+        <div class="kpi-surface">
+          <div class="grid-shell lg:grid-cols-[1.1fr_0.9fr]">
+            <article class="panel-card panel-embedded sheen-corner-left sheen-carbon stripe-fine-bold-fine">
+              <p class="stat-label">Demo Routes</p>
+              <h2 class="mt-4 font-display text-3xl text-white">Two live examples, one static entry point.</h2>
+              <p class="mt-4 max-w-2xl text-sm leading-7 text-bab-muted">
+                The dashboard demo shows the full control surface language. The hex field demo isolates the interactive
+                hex component for motion, states, and layout testing.
+              </p>
+              <div class="mt-8 grid gap-4 md:grid-cols-2">
+                <a class="panel-card panel-embedded p-6 transition duration-300 hover:border-white/10" href="examples/dashboard.html">
+                  <p class="stat-label">Primary Showcase</p>
+                  <p class="mt-3 font-display text-2xl text-white">Telemetry Dashboard</p>
+                  <p class="mt-3 text-sm leading-6 text-bab-muted">
+                    KPI tiles, CTA language, toggles, material signatures, and panel hierarchy.
+                  </p>
+                </a>
+                <a class="panel-card panel-embedded p-6 transition duration-300 hover:border-white/10" href="examples/hex.html">
+                  <p class="stat-label">Interactive Module</p>
+                  <p class="mt-3 font-display text-2xl text-white">Hex Field</p>
+                  <p class="mt-3 text-sm leading-6 text-bab-muted">
+                    Responsive hex cells with hover, active state, and refined dark-surface motion.
+                  </p>
+                </a>
+              </div>
+            </article>
+
+            <aside class="panel-card panel-embedded sheen-corner-right sheen-carbon stripe-fine-medium-bold">
+              <p class="stat-label">Publishing Notes</p>
+              <h2 class="mt-4 font-display text-3xl text-white">Ready for GitHub Pages.</h2>
+              <p class="mt-4 text-sm leading-6 text-bab-muted">
+                This root page is designed to be the public entry. The example pages and compiled stylesheet keep
+                working as static assets without changing the reusable module structure of BAB_UI.
+              </p>
+              <div class="mt-8 space-y-4">
+                <div class="data-pod sheen-corner-right sheen-carbon stripe-fine-bold-fine">
+                  <p class="text-xs uppercase tracking-[0.2em] text-bab-muted">Entry File</p>
+                  <p class="mt-3 font-display text-2xl text-white">index.html</p>
+                </div>
+                <div class="data-pod sheen-corner-right sheen-carbon stripe-bold-medium-fine">
+                  <p class="text-xs uppercase tracking-[0.2em] text-bab-muted">Example Path</p>
+                  <p class="mt-3 font-display text-2xl text-white">examples/</p>
+                </div>
+                <div class="data-pod is-accent sheen-corner-right sheen-carbon stripe-fine-medium-bold">
+                  <p class="text-xs uppercase tracking-[0.2em] text-bab-muted">Compiled CSS</p>
+                  <p class="mt-3 font-display text-2xl text-bab-primary">public/assets</p>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

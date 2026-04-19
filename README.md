@@ -53,6 +53,7 @@ npm run preview
 
 Then open:
 
+- `http://127.0.0.1:4173/`
 - `http://127.0.0.1:4173/examples/dashboard.html`
 - `http://127.0.0.1:4173/examples/hex.html`
 
@@ -65,6 +66,14 @@ npm run watch:css
 ```
 
 The preview server is only a local validation tool. `BAB_UI` remains a reusable HTML/CSS/JS module intended to be integrated into Flask apps or other host applications.
+
+## GitHub Pages
+
+The repository now includes a root `index.html` entry page so the project can be published cleanly on GitHub Pages without changing the reusable module structure.
+
+- Publish from the `main` branch and the repository root.
+- The public entry becomes `index.html`.
+- The live demo pages remain available under `examples/dashboard.html` and `examples/hex.html`.
 
 ## Design Tokens
 
