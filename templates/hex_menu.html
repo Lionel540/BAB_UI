@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title|default('BAB_UI Hex Menu') }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  </head>
+  <body class="shell">
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div>
+          <p class="text-xs uppercase tracking-[0.35em] text-bab-muted">BAB_UI</p>
+          <p class="mt-1 font-display text-lg text-white">{{ section_label|default('Hex Navigation') }}</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="section-frame py-14 md:py-20">
+      <section class="panel-card panel-embedded hex-menu-shell">
+        <div class="hex-menu-scene" data-hex-menu-scene>
+          <div class="hex-menu-ui-layer">
+            <div class="hex-menu-cluster" id="hex-submenu-group">
+              <button
+                class="hex-menu-button hex-menu-button-sub hex-menu-button-sub-left is-locked"
+                type="button"
+                data-hex-submenu
+                data-hex-position="topLeft"
+                data-submenu-key="systems"
+                disabled
+                tabindex="-1"
+                aria-disabled="true"
+              >
+                <span class="hex-menu-eyebrow">Top Left</span>
+                <span class="hex-menu-title">2</span>
+                <span class="hex-menu-copy">2</span>
+              </button>
+
+              <button
+                class="hex-menu-button hex-menu-button-sub hex-menu-button-sub-top is-locked"
+                type="button"
+                data-hex-submenu
+                data-hex-position="top"
+                data-submenu-key="overview"
+                disabled
+                tabindex="-1"
+                aria-disabled="true"
+              >
+                <span class="hex-menu-eyebrow">Top</span>
+                <span class="hex-menu-title">3</span>
+                <span class="hex-menu-copy">3</span>
+              </button>
+
+              <button
+                class="hex-menu-button hex-menu-button-sub hex-menu-button-sub-right is-locked"
+                type="button"
+                data-hex-submenu
+                data-hex-position="topRight"
+                data-submenu-key="runbook"
+                disabled
+                tabindex="-1"
+                aria-disabled="true"
+              >
+                <span class="hex-menu-eyebrow">Top Right</span>
+                <span class="hex-menu-title">4</span>
+                <span class="hex-menu-copy">4</span>
+              </button>
+
+              <button
+                class="hex-menu-button hex-menu-button-main"
+                type="button"
+                data-hex-position="center"
+                data-hex-menu-trigger
+                aria-expanded="false"
+                aria-controls="hex-submenu-group"
+              >
+                <span class="hex-menu-eyebrow">Menu Core</span>
+                <span class="hex-menu-title">1</span>
+                <span class="hex-menu-copy">1</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      (() => {
+        const scene = document.querySelector("[data-hex-menu-scene]");
+        if (!scene) return;
+
+        const trigger = scene.querySelector("[data-hex-menu-trigger]");
+        const submenus = Array.from(scene.querySelectorAll("[data-hex-submenu]"));
+        const cluster = scene.querySelector(".hex-menu-cluster");
+
+        const layoutHexes = () => {
+          if (!cluster) return;
+
+          const HEX_SIZE = window.innerWidth <= 768 ? 112 : 132;
+          const H = HEX_SIZE * 0.866;
+          const positions = {
+            center: { x: 0, y: 0 },
+            top: { x: 0, y: -H },
+            topRight: { x: 0.75 * HEX_SIZE, y: -0.5 * H },
+            topLeft: { x: -0.75 * HEX_SIZE, y: -0.5 * H },
+          };
+
+          cluster.style.setProperty("--hex-size", `${HEX_SIZE}px`);
+          cluster.style.setProperty("--hex-height", `${H}px`);
+
+          const allHexes = [trigger, ...submenus];
+          allHexes.forEach((hex) => {
+            const key = hex.dataset.hexPosition;
+            const point = positions[key];
+            if (!point) return;
+
+            hex.style.left = `calc(50% + ${point.x}px)`;
+            hex.style.top = `calc(50% + ${point.y}px)`;
+          });
+        };
+
+        const setExpanded = (expanded) => {
+          scene.classList.toggle("is-open", expanded);
+          trigger.classList.toggle("is-active", expanded);
+          trigger.setAttribute("aria-expanded", String(expanded));
+
+          submenus.forEach((submenu) => {
+            submenu.classList.toggle("is-unlocked", expanded);
+            submenu.classList.toggle("is-locked", !expanded);
+            submenu.disabled = !expanded;
+            submenu.tabIndex = expanded ? 0 : -1;
+            submenu.setAttribute("aria-disabled", String(!expanded));
+          });
+
+          scene.classList.remove("is-propagating");
+          if (expanded) {
+            requestAnimationFrame(() => {
+              scene.classList.add("is-propagating");
+              window.setTimeout(() => {
+                scene.classList.remove("is-propagating");
+              }, 900);
+            });
+          }
+        };
+
+        trigger.addEventListener("click", () => {
+          const expanded = trigger.getAttribute("aria-expanded") === "true";
+          setExpanded(!expanded);
+        });
+
+        window.addEventListener("resize", layoutHexes);
+        layoutHexes();
+
+        submenus.forEach((submenu) => {
+          submenu.addEventListener("click", () => {
+            submenus.forEach((item) => item.classList.remove("is-selected"));
+            submenu.classList.add("is-selected");
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>
